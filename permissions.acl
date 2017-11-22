@@ -19,12 +19,21 @@ rule EverybodyCanSubmitVoteTransactions {
 
 rule NewsAgencyCanCreateNewsItems {
     description: "Allow all agencies to create news items"
-    participant(p): "org.acme.sample.NewsAgency"
+    participant: "org.acme.sample.NewsAgency"
     operation: CREATE
-    resource(r): "org.acme.sample.NewsItem"
-    condition: (r.owner.getIdentifier() === p.getIdentifier())
+    resource: "org.acme.sample.NewsItem"
     action: ALLOW
 }
+
+rule NewsAgencyCanVote {
+    description: "Allow all agencies to vote for news items"
+    participant(p): "org.acme.sample.NewsAgency"
+    operation: UPDATE
+    resource(r): "org.acme.sample.NewsItem"
+    condition: (!(r.author.getIdentifier() === p.getIdentifier()))
+    action: ALLOW
+}
+
 
 
 rule SystemACL {
