@@ -1,0 +1,52 @@
+/**
+ * Sample access control list.
+ */
+rule EverybodyCanReadEverything {
+    description: "Allow all participants read access to all resources"
+    participant: "org.acme.sample.NewsAgency"
+    operation: READ
+    resource: "org.acme.sample.*"
+    action: ALLOW
+}
+
+rule EverybodyCanSubmitVoteTransactions {
+    description: "Allow all participants to vote"
+    participant: "org.acme.sample.NewsAgency"
+    operation: CREATE
+    resource: "org.acme.sample.VoteTransaction"
+    action: ALLOW
+}
+
+rule NewsAgencyCanCreateNewsItems {
+    description: "Allow all agencies to create news items"
+    participant(p): "org.acme.sample.NewsAgency"
+    operation: CREATE
+    resource(r): "org.acme.sample.NewsItem"
+    condition: (r.owner.getIdentifier() === p.getIdentifier())
+    action: ALLOW
+}
+
+
+rule SystemACL {
+  description:  "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}

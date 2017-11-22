@@ -1,0 +1,31 @@
+/**
+ * Sample business network definition.
+ */
+namespace org.acme.sample
+
+asset NewsItem identified by newsItemId {
+  o String newsItemId
+  --> NewsAgency author
+  o String title
+  o Integer votes
+  o String contentUrl
+  o String contentHash
+  o DateTime timestamp
+}
+
+participant NewsAgency identified by agencyId {
+  o String agencyId
+  o String name
+  o String info
+}
+
+transaction VoteTransaction {
+  --> NewsItem newsItem
+  o Integer score
+}
+
+event VoteEvent {
+  --> NewsItem newsItem
+  o Integer oldScore
+  o Integer newScore
+}
