@@ -1,6 +1,8 @@
-NETWORK	= $(shell pwd | xargs basename)
+#NETWORK	= $(shell pwd | xargs basename)
+NETWORK	= factchain
 VERSION = 0.1.11
-BNA = $(NETWORK)@$(VERSION).bna
+BNA 	= $(NETWORK)@$(VERSION).bna
+BROWSER	= google-chrome
 
 .PHONY: archive
 archive:
@@ -29,3 +31,7 @@ import-network-admin:
 .PHONY: rest
 rest:
 	composer-rest-server -c admin@$(NETWORK) -n never -t false -w true -a false
+
+.PHONY: explorer
+explorer:
+	$(BROWSER) http://localhost:3000/explorer/
