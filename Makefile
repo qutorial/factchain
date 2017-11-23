@@ -35,3 +35,7 @@ rest:
 .PHONY: explorer
 explorer:
 	$(BROWSER) http://localhost:3000/explorer/
+
+.PHONY: generate-angular
+generate-angular: rest
+	yo hyperledger-composer:angular
