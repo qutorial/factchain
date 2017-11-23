@@ -16,16 +16,16 @@ clean:
 ping:
 	composer network ping --card admin@$(NETWORK)
 
-.PHONY: install
+.PHONY: install-runtime
 install: archive
 	composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName $(NETWORK)
 
-.PHONY: deploy
-deploy: archive
+.PHONY: start-network
+start-network: archive
 	composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile $(BNA) --file networkadmin.card
 
-.PHONY: import-network-admin
-import-network-admin:
+.PHONY: import-card
+import-card:
 	composer card import --file networkadmin.card
 
 .PHONY: rest

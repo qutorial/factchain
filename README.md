@@ -22,5 +22,25 @@ https://composer-playground.mybluemix.net/editor
 
 ### Local Composer
 
-See the developer guide for compose and the Makefile.
+See the developer guide for Hyperledger Composer and the Makefile.
+
 https://hyperledger.github.io/composer/tutorials/developer-tutorial.html
+
+Install the required Composer development tools. Then:
+
+```
+make archive
+make install-runtime
+make start-network
+make import-card
+make ping
+```
+
+Then you can rund a REST server and explore the network:
+
+```
+make rest
+# if you do not have google-chrome, correct the Makefile to your sensible-browser
+make explorer
+```
+
