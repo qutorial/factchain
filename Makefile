@@ -26,4 +26,6 @@ deploy: archive
 import-network-admin:
 	composer card import --file networkadmin.card
 
-
+.PHONY: rest
+rest:
+	composer-rest-server -c admin@$(NETWORK) -n never -t false -w true -a false
