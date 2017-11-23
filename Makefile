@@ -6,6 +6,14 @@ BNA = $(NETWORK)@$(VERSION).bna
 archive:
 	composer archive create -t dir -n .
 
+.PHONY: clean
+clean:
+	rm -rf $(NETWORK)*.bna
+
+.PHONY: ping
+ping:
+	composer network ping --card admin@$(NETWORK)
+
 .PHONY: install
 install: archive
 	composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName $(NETWORK)
@@ -19,6 +27,3 @@ import-network-admin:
 	composer card import --file networkadmin.card
 
 
-.PHONY: clean
-clean:
-	rm -rf $(NETWORK)*.bna
