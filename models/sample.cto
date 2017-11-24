@@ -6,7 +6,7 @@ namespace org.acme.sample
 asset NewsItem identified by newsItemId {
   o String newsItemId
   --> NewsAgency author
-  --> NewsAgency[] voters
+  --> NewsAgency[] voters optional
   --> NewsItem[] references optional
   o String title
   o Integer votes
