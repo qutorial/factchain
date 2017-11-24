@@ -1,0 +1,78 @@
+\mode<presentation>
+
+\RequirePackage{babel}
+\RequirePackage{genua_fonts}
+\RequirePackage{tikz}
+
+% Unclear
+%\beamertemplatelargepartpage
+%\beamertemplatelargeframetitle
+%\beamertemplateplaintoc
+%\beamertemplatelargeblocks
+
+% Image declarations
+\iflanguage{german}{\pgfdeclareimage[interpolate=true, height=0.8cm]{logo}{images/logo-de}}{\pgfdeclareimage[interpolate=true, height=0.8cm]{logo}{images/logo-en}}
+
+% Dpending on selected theme, include small and large version
+\pgfdeclareimage[interpolate=true,height=1cm]{footimage}{images/\@tier-klein}
+\iftier@horizontal
+\pgfdeclareimage[interpolate=true,width=\@tierwidth]{titleimage1}{images/\@tier-gross}
+\else
+\pgfdeclareimage[interpolate=true,height=\@tierheight]{titleimage1}{images/\@tier-gross}
+\fi
+
+% items
+%\pgfdeclareimage[interpolate=true,height=1ex]{itemimage1}{\color{slidecolor}\rule{0.07cm}{.07cm}}
+
+\setbeamertemplate{section in toc}{\inserttocsection}
+\setbeamertemplate{subsection in toc}{\vskip0.5em\hskip2em\color{slidecolor}\raisebox{.25em}{\rule{0.07cm}{.07cm}}\,\raisebox{.25em}{\rule{0.07cm}{0.07cm}}\ \inserttocsubsection}
+\setbeamertemplate{itemize item}{\color{slidecolor}\raisebox{.25em}{\rule{0.07cm}{.07cm}}\,\raisebox{.25em}{\rule{0.07cm}{0.07cm}}}
+\setbeamertemplate{itemize subitem}{\color{slidecolor}\raisebox{.25em}{\rule{0.07cm}{.07cm}}\,\raisebox{.25em}{\rule{0.07cm}{0.07cm}}}
+\setbeamertemplate{itemize subsubitem}{\color{slidecolor}\raisebox{.25em}{\rule{0.07cm}{.07cm}}\,\raisebox{.25em}{\rule{0.07cm}{0.07cm}}}
+\setbeamertemplate{enumerate items}[default]
+
+
+%\setbeamertemplate{title}{}
+%\setbeamertemplate{footline}[slides]{footimage}
+
+
+%Titelseite der Prsentation:
+\defbeamertemplate*{title page}{slides}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=-.2cm,yshift=-0.2cm, anchor=north east, inner sep=0,outer sep=0] at (current page.north east){%
+\pgfuseimage{logo}%
+};
+\end{tikzpicture}
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=0cm,yshift=-1.1cm, anchor=north west, inner sep=0,outer sep=0] at (current page.north west){%
+{\mbox{}}%\color{slidecolor}\rule{\paperwidth}{.07cm}}
+};
+\end{tikzpicture}
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=south west, inner sep=0, outer sep=0] at (current page.south west){%
+{\pgfuseimage{titleimage1}}};
+\end{tikzpicture}
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=0,yshift=2cm, anchor=east, inner sep=0,outer sep=0] at (current page.east){%
+\Large{
+{\parbox[c][][t]{.7\paperwidth}{%
+\centering
+\textbf{\mixage{\inserttitle}}\\[0.2em]
+\mbox{}\textbf{\small \mixage{\insertsubtitle}}
+}
+}
+}
+};
+\end{tikzpicture}
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=0,yshift=-3cm, anchor=east, inner sep=0,outer sep=0] at (current page.east){%
+{\parbox[c][][b]{.7\paperwidth}{%
+\centering
+\mbox{}\mixage{\insertauthor}\\
+\mbox{}\mixage{\insertinstitute}\\[1em]
+\mbox{}\mixage{\insertdate}
+}}};
+\end{tikzpicture}
+}
+
+\mode<all>

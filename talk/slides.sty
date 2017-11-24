@@ -1,0 +1,151 @@
+\ProvidesPackage{slides}[2017/07/17 ver 2.00, dloeb@]
+
+\RequirePackage{tikz}
+
+\DeclareOption{english}{%
+  \PassOptionsToPackage{english}{babel}
+}
+
+\DeclareOption{german}{%
+  \PassOptionsToPackage{german}{babel}
+}
+
+% Variablen für unterschiedliche Layouts
+\newcommand{\@tier}[1]{}
+\newcommand{\@tierwidth}{.3\paperwidth}
+\newcommand{\@tierheight}{.5\paperheight}
+
+% Depending on this switch, either \@tierwidth or \@tierheight
+% are relevant for the size of the title animal
+\newif\iftier@horizontal
+\tier@horizontaltrue
+
+\DeclareOption{newspaper}{
+ \renewcommand{\@tier}{newspaper}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{biber}{
+ \renewcommand{\@tier}{biber}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{biene}{
+ \renewcommand{\@tier}{biene}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{chamaeleon}{
+ \renewcommand{\@tier}{chamaeleon}
+ \tier@horizontalfalse
+}
+
+\DeclareOption{delfine}{
+ \renewcommand{\@tier}{delfine}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{einhorn}{
+ \renewcommand{\@tier}{einhorn}
+ \renewcommand{\@tierheight}{.6\paperheight}
+ \tier@horizontalfalse
+}
+
+\DeclareOption{einhornkotz}{
+ \renewcommand{\@tier}{einhornkotz}
+ \renewcommand{\@tierwidth}{.3\paperwidth}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{eisbaer}{
+ \renewcommand{\@tier}{eisbaer}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{elefant}{
+ \renewcommand{\@tier}{elefant}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{erdmann}{
+ \renewcommand{\@tier}{erdmann}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{eule}{
+ \renewcommand{\@tier}{eule}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{fisch}{
+ \renewcommand{\@tier}{fisch}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{fuchs}{
+ \renewcommand{\@tier}{fuchs}
+ \tier@horizontalfalse
+}
+
+\DeclareOption{hase}{
+ \renewcommand{\@tier}{hase}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{igel}{
+ \renewcommand{\@tier}{igel}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{kaetzchen}{
+ \renewcommand{\@tier}{kaetzchen}
+ \renewcommand{\@tierwidth}{.4\paperwidth}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{luchs}{
+ \renewcommand{\@tier}{luchs}
+ \tier@horizontalfalse
+}
+
+\DeclareOption{nashorn}{
+ \renewcommand{\@tier}{nashorn}
+ \tier@horizontalfalse
+}
+
+\DeclareOption{salamander}{
+ \renewcommand{\@tier}{salamander}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{schmetterling}{
+ \renewcommand{\@tier}{schmetterling}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{tiger}{
+ \renewcommand{\@tier}{tiger}
+ \tier@horizontalfalse
+}
+
+\DeclareOption{voegel}{
+ \renewcommand{\@tier}{voegel}
+ \tier@horizontaltrue
+}
+
+\DeclareOption{wolf}{
+ \renewcommand{\@tier}{wolf}
+ \tier@horizontalfalse
+}
+
+\ExecuteOptions{luchs,german}
+
+\ProcessOptions\relax
+
+%\RequirePackage{pgf}
+
+\useinnertheme{slides}
+\useoutertheme{slides}
+\usecolortheme{slides}
+
+\mode<all>
