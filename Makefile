@@ -17,16 +17,27 @@ ping:
 	composer network ping --card admin@$(NETWORK)
 
 .PHONY: install-runtime
-install: archive
+install-runtime: archive
 	composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName $(NETWORK)
 
 .PHONY: start-network
 start-network: archive
 	composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile $(BNA) --file networkadmin.card
 
+.PHONY: update-network
+update-network: archive
+	composer network update -a $(BNA) --card admin@factchain
+
 .PHONY: import-card
 import-card:
 	composer card import --file networkadmin.card
+
+.PHONY: delete-card
+delete-card:
+	composer card delete --name admin@factchain
+
+.PHONY: hard-reset
+hard-reset: archive install-runtime start-network delete-card import-card 
 
 .PHONY: rest
 rest:
@@ -39,3 +50,7 @@ explorer:
 .PHONY: generate-angular
 generate-angular: rest
 	yo hyperledger-composer:angular
+
+.PHONY: playground
+playground:
+	composer-playground
