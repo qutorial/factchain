@@ -6,6 +6,8 @@ namespace org.acme.sample
 asset NewsItem identified by newsItemId {
   o String newsItemId
   --> NewsAgency author
+  --> NewsAgency[] voters
+  --> NewsItem[] references optional
   o String title
   o Integer votes
   o String contentUrl
@@ -21,6 +23,7 @@ participant NewsAgency identified by agencyId {
 
 transaction VoteTransaction {
   --> NewsItem newsItem
+  --> NewsAgency origin
   o Integer score
 }
 
