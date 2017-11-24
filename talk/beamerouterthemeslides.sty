@@ -1,0 +1,53 @@
+\mode<presentation>
+
+% No navigation in pdf
+\beamertemplatenavigationsymbolsempty
+\beamertemplatetransparentcovereddynamic
+
+% Font specifications
+\setbeamerfont{frametitle}{shape=\mixage,series=\bfseries}
+\setbeamerfont{framesubtitle}{shape=\mixage}
+
+\setbeamerfont{section in toc}{shape=\mixage}
+\setbeamerfont{subsection in toc}{shape=\mixage}
+
+\setbeamerfont{block title}{shape=\mixage,series=\bfseries}
+
+\setbeamercovered{invisible}
+
+% Global definitions
+\defbeamertemplate*{headline}{slides}
+{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=-.2cm,yshift=-0.2cm, anchor=north east, inner sep=0,outer sep=0]   at (current page.north east){%
+\pgfuseimage{logo}};
+\end{tikzpicture}
+  \vskip.2cm%
+  \hskip1.7cm
+  \vbox{%
+    \tinyline{\color{slidecolor}\mixage{\insertshorttitle\hfill}}%
+    \setbox\beamer@tempbox=\hbox{\mixage{\insertsection}}%
+    \tinyline{\color{slidecolor}\ifdim\wd\beamer@tempbox>1pt{\hskip2pt\raise1.9pt\hbox
+         {\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}}
+         \hskip1pt\mixage{\insertsection}\fi\hfill}%
+    \setbox\beamer@tempbox=\hbox{\hskip5em\mixage{\insertsubsection}}%
+  }
+  \vskip.198cm
+  {\color{slidecolor}\rule{\paperwidth}{.07cm}}
+}
+
+\defbeamertemplate{footline}{slides}[1]{%
+  \pgfuseimage{#1} \hfill \raisebox{.2cm}{\insertframenumber} \hspace{.5cm}
+} 
+
+
+\setbeamertemplate{footline}[slides]{footimage}
+
+\defbeamertemplate{frametitle}{slides}{
+  \usebeamercolor[fg]{frametitle}{\insertframetitle}\\
+  \small\usebeamercolor[fg]{framesubtitle}{\insertframesubtitle}
+}
+
+\setbeamertemplate{frametitle}[slides]
+ 
+\mode<all>
