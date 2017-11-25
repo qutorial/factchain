@@ -36,8 +36,13 @@ import-card:
 delete-card:
 	composer card delete --name admin@factchain
 
+.PHONY: fill-data
+fill-data:
+	./filldata.sh
+
+
 .PHONY: hard-reset
-hard-reset: archive install-runtime start-network delete-card import-card 
+hard-reset: archive install-runtime start-network delete-card import-card
 
 .PHONY: rest
 rest:
