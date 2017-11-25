@@ -15,6 +15,10 @@
 \pgfdeclareimage[width=6cm]{livedemo}{images/livedemo}
 \pgfdeclareimage[width=6cm]{idea}{images/idea}
 
+\pgfdeclareimage[width=7cm]{trump}{images/trump}
+\pgfdeclareimage[width=10cm]{merkel}{images/merkel}
+
+
 \title{Introducing Factchain}
 \subtitle{a blockchain based approach for fighting fake-news\\based on hyperledger technologies}
 \author{Alexander Fiveg \and Daniel Loebenberger \and Zaur Molotnikov}
@@ -27,19 +31,30 @@
 \begin{frame}
 \frametitle{The Problem}
 
+\only<1>{%
+\begin{center}
+\pgfuseimage{trump}\\
+Liars!!!
+\end{center}}
+\only<2>{%
+\begin{center}
+\pgfuseimage{merkel}\\
+``Postfaktisches Zeitalter''\footnote{post-fact(ual) age}
+\end{center}}
+\only<3>{%
 \parbox{12cm}{
 \begin{minipage}[c][6cm][c]{8cm}
 \begin{itemize}
 \item News are not trustworthy anymore.
-\item Even for news agencies it is often difficult to judge wether news are true or not.
 \item Fake-news spread through social networks. 
+\item It is often difficult to judge wether news are true or not.
 \end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}[c][6cm][c]{3.5cm}
 \pgfuseimage{fakenews}
 \end{minipage}
-}
+}}
 \end{frame}
 
 \begin{frame}
@@ -52,7 +67,7 @@
 \item News depend on previous news.
 \item News have a confidence value.
 \item Users can vote \{\texttt{true}, \texttt{false}\}, which
-      modifies the confidence value by $\pm 1$ accordingly.
+      modifies the confidence value by $\pm 1$, accordingly.
 \end{itemize}
 \end{minipage}
 \hfill

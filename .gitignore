@@ -2,3 +2,4 @@
 *.card
 composer-logs
 factchain/
+.DS_Store
