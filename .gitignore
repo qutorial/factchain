@@ -3,3 +3,11 @@
 composer-logs
 factchain/
 .DS_Store
+talk/factchain.aux
+talk/factchain.log
+talk/factchain.nav
+talk/factchain.out
+talk/factchain.pdf
+talk/factchain.snm
+talk/factchain.synctex.gz
+talk/factchain.toc
