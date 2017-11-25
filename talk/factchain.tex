@@ -12,11 +12,19 @@
 \pgfdeclareimage[width=12cm]{writersblock}{images/writersblock}
 
 \pgfdeclareimage[width=6cm]{fakenews}{images/fakenews}
-\pgfdeclareimage[width=6cm]{livedemo}{images/livedemo}
+\pgfdeclareimage[height=5cm]{livedemo}{images/livedemo}
 \pgfdeclareimage[width=6cm]{idea}{images/idea}
 
-\pgfdeclareimage[width=7cm]{trump}{images/trump}
+\pgfdeclareimage[height=5cm]{trump}{images/trump}
 \pgfdeclareimage[width=10cm]{merkel}{images/merkel}
+\pgfdeclareimage[height=5cm]{brain}{images/brain}
+\pgfdeclareimage[height=4cm]{future}{images/future}
+
+
+\pgfdeclareimage[height=5cm]{journalist}{images/journalist}
+\pgfdeclareimage[height=5cm]{blockchain}{images/blockchain}
+\pgfdeclareimage[height=5cm]{vote}{images/vote}
+\pgfdeclareimage[height=5cm]{value}{images/value}
 
 
 \title{Introducing Factchain}
@@ -31,60 +39,75 @@
 \begin{frame}
 \frametitle{The Problem}
 
-\only<1>{%
 \begin{center}
 \pgfuseimage{trump}\\
 Liars!!!
-\end{center}}
-\only<2>{%
-\begin{center}
-\pgfuseimage{merkel}\\
-``Postfaktisches Zeitalter''\footnote{post-fact(ual) age}
-\end{center}}
-\only<3>{%
-\parbox{12cm}{
-\begin{minipage}[c][6cm][c]{7cm}
-\begin{itemize}
-\item News are not trustworthy anymore.
-\item Fake news spread through social networks. 
-\item It is often difficult to judge wether news are true or not.
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[c][6cm][c]{3.5cm}
-\pgfuseimage{fakenews}
-\end{minipage}
-}}
+\end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{The Solution}
+\frametitle{Stakeholder}
 
-\parbox{12cm}{
-\begin{minipage}[c][6cm][c]{7cm}
-\begin{itemize}
-\item Store blocks of news in blockchain.
-\item News depend on previous news.
-\item News have a confidence value.
-\item Users can vote \{\texttt{true}, \texttt{false}\}, which
-      modifies the confidence value by $\pm 1$, accordingly.
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[c][6cm][c]{3.5cm}
-\only<1>{\pgfuseimage{idea}}
-\only<2>{\pgfuseimage{livedemo}}
-\end{minipage}
-}
+\begin{center}
+\pgfuseimage{journalist}
+
+Publishers and journalists
+\end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{Thank you!}
+\frametitle{Idea}
+
 \begin{center}
-\pgfuseimage{writersblock}\\
-Any questions?
+\pgfuseimage{blockchain}
+
+Store scored news in blockchain, referencing prior news.
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Common Consensus}
+
 \begin{center}
+\pgfuseimage{vote}
+
+Users can judge on the news!
 \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Value proposition}
+
+\begin{center}
+\pgfuseimage{value}
+
+Access to a reliable, immutable source of facts.
 \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{User Interface}
+
+\begin{center}
+\pgfuseimage{livedemo}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Outlook}
+
+\begin{minipage}[6cm]{7cm}
+\begin{itemize}
+\item Add references to prior news to the user interface
+\item Extend the idea to other stakeholders, such as readers of news
+\item Then, an incentive for correct voting has to be added
+\item Finally, defeat fake news!
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[5cm]{6cm}
+\pgfuseimage{future}
+\end{minipage}
 \end{frame}
 \end{document}
