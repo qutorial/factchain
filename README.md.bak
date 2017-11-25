@@ -5,7 +5,7 @@ Amazing blockchain app to fight the fake news!
 Using this blockchain based application it is 
 possible to come to a consensus about facts.
 
-News Agencies are the targeted clientele.
+News Agencies are the targetted clientelle.
 
 
 ## Install
@@ -32,7 +32,7 @@ Install the required Composer development tools. Then:
 make hard-reset
 ```
 
-Then you can run a REST server and explore the network:
+Then you can rund a REST server and explore the network:
 
 ```
 make rest
